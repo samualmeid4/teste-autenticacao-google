@@ -1,0 +1,21 @@
+<main class="success-page">
+  <section class="success-card" aria-labelledby="success-title">
+    <div class="success-icon" aria-hidden="true">✓</div>
+
+    <p class="eyebrow">Acesso liberado</p>
+    <h1 id="success-title">Login realizado com sucesso</h1>
+
+    <p class="success-text">
+      @if (user?.username) {
+        Bem-vindo, {{ user?.username }}. Sua sessao foi iniciada no frontend.
+      } @else {
+        Sua sessao foi iniciada no frontend.
+      }
+    </p>
+
+    <div class="success-actions">
+      <a class="primary-link" routerLink="/">Voltar ao login</a>
+      <a class="secondary-link" routerLink="/criar-conta">Criar outra conta</a>
+    </div>
+  </section>
+</main>

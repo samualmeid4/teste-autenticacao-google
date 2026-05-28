@@ -1,0 +1,55 @@
+<main class="auth-page">
+  <section class="brand-panel" aria-label="Apresentacao do sistema">
+    <div class="brand-mark">PDS</div>
+    <div>
+      <p class="eyebrow">Projeto de teste</p>
+      <h1>Entre para continuar</h1>
+      <p class="intro">
+        Uma primeira tela de login para conectar o frontend Angular ao seu servidor Django nas proximas etapas.
+      </p>
+    </div>
+  </section>
+
+  <section class="auth-card" aria-labelledby="login-title">
+    <div class="auth-header">
+      <p class="eyebrow">Bem-vindo</p>
+      <h2 id="login-title">Login</h2>
+      <p>Acesse sua conta com e-mail e senha.</p>
+    </div>
+
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" formControlName="email" />
+
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" formControlName="password" />
+
+      <div class="form-row">
+        <label class="remember">
+          <input type="checkbox" name="remember" />
+          <span>Lembrar-me</span>
+        </label>
+        <a href="/" aria-label="Recuperar senha">Esqueci a senha</a>
+      </div>
+
+      <button class="primary-button" type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+
+    @if (message) {
+      <p class="form-message" [class.form-message--error]="messageType === 'error'">{{ message }}</p>
+    }
+
+    <div class="divider">
+      <span>ou</span>
+    </div>
+
+    <div id="google-button" class="google-button-container"></div>
+
+    <p class="switch-text">
+      Ainda nao tem conta?
+      <a routerLink="/criar-conta">Criar conta</a>
+    </p>
+  </section>
+</main>
